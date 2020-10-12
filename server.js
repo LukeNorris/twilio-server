@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
 app.post('/sms', asyncHandler(async (req, res)=>{
-  const accountSid = 'ACcd25aec9decc3b95a52c0bad23d63cb7';
+  const accountSid = process.env.ACCOUNT_SID;
   const authToken = process.env.AUTH_TOKEN;
   const client = require('twilio')(accountSid, authToken);
   const body = await req.body.body
